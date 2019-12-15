@@ -1,5 +1,5 @@
 {
-  "name": "heart-beat-trends24h",
+  "name": "cronjob-trends24h",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
