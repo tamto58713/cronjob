@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+  upcharge:
+    build: .
+    mem_limit: 512m
+    restart: always
+    env_file: .env
+    expose:
+      - "8081"
+    volumes:
+      - .:/usr/src/cronjob
+    logging:
+      options:
+        max-size: 50m
+    network_mode: host

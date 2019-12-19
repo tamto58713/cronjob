@@ -3,7 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 const app = require('express')();
 
-const { PORT = 8080 } = process.env;
+const { PORT = 8081 } = process.env;
 let places = fs.readFileSync('./db.json', {encoding: 'utf-8'});
 places = JSON.parse(places);
 let i = 0;
