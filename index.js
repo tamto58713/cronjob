@@ -22,8 +22,7 @@ async function execute() {
       headers: { api_key: process.env.API_KEY },
       data: {
         place: places[i],
-        key,
-        amount_trends: process.env.AMOUNT_TRENDS
+        key
       }
     })
     .catch(error => {
@@ -41,7 +40,7 @@ async function execute() {
   }
 }
 
-setInterval(execute, 6000);
+setInterval(execute, 4000);
 execute()
 
 app.listen(PORT, () => {
