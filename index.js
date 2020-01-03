@@ -7,13 +7,8 @@ const { PORT = 8081 } = process.env;
 let places = fs.readFileSync('./db.json', {encoding: 'utf-8'});
 places = JSON.parse(places);
 let i = 0;
-let key = 1;
-let k = 0;
+let key = 0;
 async function execute() {
-  if (i === parseInt(process.env.AMOUNT_PLACES)) {
-    i = 0;
-  }
-
   const  url =  `${process.env.HOST}/heart-beat-trends`;
 
   await axios({
@@ -28,17 +23,12 @@ async function execute() {
     .catch(error => {
       console.log(error.message);
     })
-  console.log('place', `${i}/${places.length - 1} - key: ${key}`);
-  i++;
-  k++;
-  if (k === 5) {
-    k = 0;
-    key++;
-    if (key > parseInt(process.env.AMOUNT_KEY)) {
-      key = 1;
-    }
-  }
-}
+  console.log('place', `${i}/${places.length - 1} - key: ${key + 1}`);
+  i++
+  i = i % process.env.AMOUNT_PLACES;
+  key++;
+  key = key % AMOUNT_KEY;
+} 
 
 setInterval(execute, 4000);
 execute()
