@@ -27,7 +27,7 @@ async function execute() {
   i++
   i = i % process.env.AMOUNT_PLACES;
   key++;
-  key = key % AMOUNT_KEY;
+  key = key % process.env.AMOUNT_KEY;
 } 
 
 setInterval(execute, 4000);
