@@ -17,7 +17,7 @@ async function execute() {
       headers: { api_key: process.env.API_KEY },
       data: {
         place: places[i],
-        key
+        key: key + 1
       }
     })
     .catch(error => {
