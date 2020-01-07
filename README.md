@@ -3,6 +3,7 @@ use to call api Twitter
 ## Clone project
 ```bash
 git clone https://github.com/tamto58713/cronjob
+cd cronjob
 ```
 ## Install dependences
 - via npm
@@ -38,3 +39,12 @@ docker restart <container>
  ```bash
 docker logs -f <container>
 ```
+## Start project with pm2 (require .env file)
+```bash
+pm2 start index.js
+```
+- show logs
+```bash
+pm2 logs <index>
+```
+
